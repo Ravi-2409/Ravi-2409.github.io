@@ -14,6 +14,11 @@
             --background-color: #ffffff;
             --section-bg: #f9f9f9;
             --border-color: #dddddd;
+            --xp-color: #4CAF50;
+            --badge-bronze: #cd7f32;
+            --badge-silver: #C0C0C0;
+            --badge-gold: #FFD700;
+            --badge-platinum: #E5E4E2;
         }
 
         * {
@@ -27,6 +32,7 @@
             color: var(--text-color);
             background-color: var(--background-color);
             line-height: 1.6;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230066cc' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
         .container {
@@ -51,8 +57,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/api/placeholder/1200/300') center/cover;
-            opacity: 0.1;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cpath fill="%23ffffff" fill-opacity="0.1" d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-andomized3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5z"%3E%3C/path%3E%3C/svg%3E') center/cover;
             z-index: 0;
         }
 
@@ -61,19 +66,74 @@
             z-index: 1;
         }
 
+        .profile-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+        }
+
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             border: 5px solid white;
-            margin-bottom: 20px;
+            margin: 15px auto;
             object-fit: cover;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        .level-badge {
+            position: absolute;
+            bottom: 0;
+            right: 30px;
+            background: var(--secondary-color);
+            color: white;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid white;
+            z-index: 3;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .xp-bar-container {
+            width: 200px;
+            margin: 0 auto 15px;
+            background-color: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .xp-bar {
+            height: 100%;
+            width: 75%;
+            background-color: var(--xp-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .xp-text {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
         }
 
         h1 {
             font-size: 2.8rem;
             margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .title {
@@ -109,7 +169,7 @@
         }
 
         .social-links a:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background-color: var(--accent-color);
         }
@@ -136,15 +196,42 @@
             font-weight: 500;
             transition: all 0.3s ease;
             border-radius: 4px;
+            position: relative;
         }
 
-        nav a:hover {
+        nav a:hover, nav a.active {
             background-color: var(--accent-color);
             color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 70%;
         }
 
         section {
             padding: 60px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         section:nth-child(even) {
@@ -186,6 +273,40 @@
             font-size: 1.1rem;
         }
 
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -205,6 +326,7 @@
 
         .skill-category:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .skill-category h3 {
@@ -213,19 +335,34 @@
             font-size: 1.3rem;
         }
 
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .skill-bar {
+            margin-bottom: 15px;
         }
 
-        .skill-tag {
-            background-color: var(--accent-color);
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-level {
             color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
+            font-weight: 500;
+        }
+
+        .skill-progress {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
         }
 
         .timeline {
@@ -251,6 +388,14 @@
             position: relative;
             width: 50%;
             box-sizing: border-box;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .timeline-item::after {
@@ -263,6 +408,12 @@
             border-radius: 50%;
             top: 15px;
             z-index: 1;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .timeline-item:hover::after {
+            transform: scale(1.2);
+            background-color: var(--primary-color);
         }
 
         .left {
@@ -287,6 +438,12 @@
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
 
         .timeline-content h3 {
@@ -309,6 +466,11 @@
             position: relative;
             padding-left: 20px;
             margin-bottom: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .timeline-content ul li:hover {
+            transform: translateX(5px);
         }
 
         .timeline-content ul li::before {
@@ -319,6 +481,16 @@
             left: 0;
         }
 
+        .achievement-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: white;
+            margin-left: 10px;
+            background-color: var(--xp-color);
+        }
+
         .project-card {
             background-color: white;
             border-radius: 8px;
@@ -326,16 +498,23 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
             margin-bottom: 30px;
+            position: relative;
         }
 
         .project-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
 
         .project-img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
 
         .project-content {
@@ -361,9 +540,49 @@
         .tech-stack span {
             background-color: var(--accent-color);
             color: var(--primary-color);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 15px;
             font-size: 0.8rem;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .tech-stack span:hover {
+            transform: translateY(-2px);
+            background-color: #d5e5ff;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background-color: rgba(0, 102, 204, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .view-project-btn {
+            background-color: white;
+            color: var(--primary-color);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .view-project-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .education-card {
@@ -372,6 +591,14 @@
             padding: 25px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             margin-bottom: 25px;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .education-card h3 {
@@ -384,12 +611,29 @@
             margin-bottom: 5px;
         }
 
+        .edu-medal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--badge-gold);
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
         .cert-list {
             list-style-type: none;
             margin-top: 20px;
         }
 
-        .cert-list li {
+        .cert-item {
             background-color: white;
             padding: 15px 20px;
             margin-bottom: 15px;
@@ -398,13 +642,22 @@
             transition: transform 0.3s ease;
             position: relative;
             padding-left: 35px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateX(-20px);
         }
 
-        .cert-list li:hover {
+        .cert-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .cert-item:hover {
             transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .cert-list li::before {
+        .cert-item::before {
             content: '✓';
             color: var(--primary-color);
             position: absolute;
@@ -412,38 +665,300 @@
             font-weight: bold;
         }
 
-        footer {
+        .cert-badge {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .bronze {
+            background-color: var(--badge-bronze);
+        }
+
+        .silver {
+            background-color: var(--badge-silver);
+        }
+
+        .gold {
+            background-color: var(--badge-gold);
+        }
+
+        .platinum {
+            background-color: var(--badge-platinum);
+        }
+
+        .achievement-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .achievement-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .achievement-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .achievement-desc {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        .achievement-xp {
+            font-weight: bold;
+            color: var(--xp-color);
+        }
+
+        .close-modal {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .close-modal:hover {
             background-color: var(--secondary-color);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cpath fill="%23ffffff" fill-opacity="0.05" d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z"%3E%3C/path%3E%3C/svg%3E') center/cover;
+            z-index: 0;
         }
 
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .footer-contact {
             margin: 20px 0;
+            display: flex;
+            gap: 15px;
         }
 
         .footer-contact a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .footer-contact a:hover {
             color: var(--accent-color);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .copyright {
             margin-top: 20px;
             font-size: 0.9rem;
             opacity: 0.8;
+        }
+
+        /* Floating achievement notification */
+        .achievement-notification {
+            position: fixed;
+            bottom: 30px;
+            right: -300px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            z-index: 100;
+            transition: right 0.5s ease;
+        }
+
+        .achievement-notification.show {
+            right: 30px;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .notification-content {
+            flex: 1;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Puzzle piece animation */
+        .puzzle-piece {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 102, 204, 0.1);
+            border-radius: 8px;
+            z-index: -1;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(10px, -10px) rotate(5deg);
+            }
+            50% {
+                transform: translate(0, -20px) rotate(0deg);
+            }
+            75% {
+                transform: translate(-10px, -10px) rotate(-5deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+        }
+
+        /* Loading progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: var(--primary-color);
+            transition: width 0.4s ease;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 100;
+            cursor: pointer;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
         }
 
         @media screen and (max-width: 768px) {
@@ -471,7 +986,7 @@
                 left: 31px;
             }
 
-            .timeline-item {
+            .-timeline-item {
                 width: 100%;
                 padding-left: 70px;
                 padding-right: 25px;
@@ -488,15 +1003,77 @@
             .right {
                 left: 0%;
             }
+
+            .achievement-notification {
+                width: 230px;
+            }
+
+            .achievement-notification.show {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-contact a {
+                width: 80%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Achievement Modal -->
+    <div class="achievement-modal" id="achievementModal">
+        <div class="achievement-icon">🏆</div>
+        <h3 class="achievement-title">Achievement Unlocked!</h3>
+        <p class="achievement-desc">You've discovered a hidden talent!</p>
+        <p class="achievement-xp">+50 XP</p>
+        <button class="close-modal" id="closeModal">Awesome!</button>
+    </div>
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <!-- Floating Achievement Notification -->
+    <div class="achievement-notification" id="achievementNotification">
+        <div class="notification-icon">🌟</div>
+        <div class="notification-content">
+            <div class="notification-title">New Achievement!</div>
+            <div class="notification-text">Portfolio Explorer</div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" title="Back to Top">
+        ↑
+    </div>
+
     <header>
+        <!-- Floating puzzle pieces -->
+        <div class="puzzle-piece" style="top: 20%; left: 10%;"></div>
+        <div class="puzzle-piece" style="top: 60%; left: 15%;"></div>
+        <div class="puzzle-piece" style="top: 30%; left: 80%;"></div>
+        <div class="puzzle-piece" style="top: 70%; left: 85%;"></div>
+        
         <div class="container header-content">
-            <img src="/api/placeholder/400/400" alt="Ravi Ranjan Singh" class="profile-img">
+            <div class="profile-wrapper">
+                <img src="/api/placeholder/400/400" alt="Ravi Ranjan Singh" class="profile-img">
+                <div class="level-badge">Lv.18</div>
+            </div>
+            <div class="xp-bar-container">
+                <div class="xp-bar" id="xpBar"></div>
+            </div>
+            <p class="xp-text">6,750 / 9,000 XP to Level 19</p>
+            
             <h1>Ravi Ranjan Singh</h1>
-            <p class="title">Data Engineer</p>
+            <p class="title">Data Engineer <span class="achievement-badge">Master</span></p>
             <div class="contact-info">
                 <p>Bengaluru, India | +91 8437336574 | raviranjans.2409@gmail.com</p>
             </div>
@@ -509,7 +1086,7 @@
 
     <div class="nav-container">
         <nav class="container">
-            <a href="#about">About</a>
+            <a href="#about" class="active">About</a>
             <a href="#experience">Experience</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
@@ -518,7 +1095,7 @@
         </nav>
     </div>
 
-    <section id="about">
+    <section id="about" class="visible">
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
@@ -528,6 +1105,25 @@
                     <p>Currently working at Asper.ai in the CPG domain, I focus on transforming complex data into actionable insights through efficient data engineering practices. My experience spans across various data technologies including Python, Apache Airflow, Spark, and cloud platforms like AWS and GCP.</p>
                     
                     <p>With a strong foundation in computer science and a passion for solving data challenges, I'm constantly exploring new technologies to enhance data processing capabilities and drive business value through reliable data infrastructure.</p>
+                
+                    <div class="stats-grid">
+                        <div class="stat-card" data-achievement="Project Master">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card" data-achievement="Experience Collector">
+                            <div class="stat-number">2+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card" data-achievement="Pipeline Architect">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">Data Pipelines</div>
+                        </div>
+                        <div class="stat-card" data-achievement="Code Warrior">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">DSA Problems</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -539,7 +1135,7 @@
             <div class="timeline">
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>Data Engineer</h3>
+                        <h3>Data Engineer <span class="achievement-badge">+300 XP</span></h3>
                         <h4>Asper.ai, Bengaluru (CPG Domain) | Jul 2023 – Present</h4>
                         <ul>
                             <li>Designed and implemented scalable data pipelines using Python and Apache Airflow to process large-scale CPG retail data from multiple sources.</li>
@@ -554,7 +1150,7 @@
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>Software Engineer Trainee</h3>
+                        <h3>Software Engineer Trainee <span class="achievement-badge">+150 XP</span></h3>
                         <h4>Xperi Inc., Bengaluru (OTT and Multimedia domain) | Jan 2023 – Jul 2023</h4>
                         <ul>
                             <li>Developed mobile UI test automation using Appium & Pytest, improving UI test coverage by 20%.</li>
@@ -574,50 +1170,122 @@
             <div class="skills-container">
                 <div class="skill-category">
                     <h3>Languages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">SQL</span>
-                        <span class="skill-tag">Java</span>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Python</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>SQL</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Java</span>
+                            <span class="skill-level">70%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="70"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Data Engineering Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Apache Airflow</span>
-                        <span class="skill-tag">Spark</span>
-                        <span class="skill-tag">Kafka</span>
-                        <span class="skill-tag">AWS Glue</span>
-                        <span class="skill-tag">S3</span>
-                        <span class="skill-tag">BigQuery</span>
-                        <span class="skill-tag">Snowflake</span>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Apache Airflow</span>
+                            <span class="skill-level">95%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Spark</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Kafka</span>
+                            <span class="skill-level">80%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="80"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Cloud Platforms</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Azure</span>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>AWS</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>GCP</span>
+                            <span class="skill-level">75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Azure</span>
+                            <span class="skill-level">65%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="65"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>DevOps Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Bitbucket</span>
-                        <span class="skill-tag">Terraform</span>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Docker</span>
+                            <span class="skill-level">85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Others</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Jira</span>
-                        <span class="skill-tag">REST APIs</span>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Git</span>
+                            <span class="skill-level">90%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-info">
+                            <span>Terraform</span>
+                            <span class="skill-level">75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="progress-fill" data-width="75"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -627,10 +1295,13 @@
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <div class="project-card">
+            <div class="project-card" data-achievement="YouTube Clone Expert">
                 <img src="/api/placeholder/800/400" alt="YouTube Clone Project" class="project-img">
+                <div class="project-overlay">
+                    <button class="view-project-btn">View Project</button>
+                </div>
                 <div class="project-content">
-                    <h3>YouTube Clone Web App</h3>
+                    <h3>YouTube Clone Web App <span class="achievement-badge">+100 XP</span></h3>
                     <p>Developed a responsive YouTube clone using ReactJS with real-time video search and playback. Integrated YouTube v3 API for fetching trending videos, channels, and search results. Designed an intuitive UI with reusable components and routing for a seamless user experience.</p>
                     <div class="tech-stack">
                         <span>ReactJS</span>
@@ -640,13 +1311,32 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="project-card" data-achievement="Data Pipeline Architect">
+                <img src="/api/placeholder/800/400" alt="Data Pipeline Project" class="project-img">
+                <div class="project-overlay">
+                    <button class="view-project-btn">View Project</button>
+                </div>
+                <div class="project-content">
+                    <h3>E-commerce Data Pipeline <span class="achievement-badge">+150 XP</span></h3>
+                    <p>Built an end-to-end data pipeline for an e-commerce platform using Apache Airflow, AWS S3, and Snowflake. Implemented real-time inventory tracking and sales analytics dashboards. The solution handled over 1M transactions daily with optimized ETL processes.</p>
+                    <div class="tech-stack">
+                        <span>Python</span>
+                        <span>Airflow</span>
+                        <span>AWS</span>
+                        <span>Snowflake</span>
+                        <span>SQL</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            <div class="education-card">
+            <div class="education-card" data-achievement="Academic Excellence">
+                <div class="edu-medal">🎓</div>
                 <h3>Lovely Professional University, Punjab</h3>
                 <p><strong>B.Tech in Computer Science</strong> | 2019–2023</p>
                 <p>GPA: 8.91/10.0 (Dean's List)</p>
@@ -659,11 +1349,26 @@
         <div class="container">
             <h2 class="section-title">Certifications & Achievements</h2>
             <ul class="cert-list">
-                <li>Data Engineering on Google Cloud– Coursera (Google Cloud)</li>
-                <li>Python Programming by Google– Coursera</li>
-                <li>4-star in MySQL & Java on HackerRank</li>
-                <li>200+ DSA problems on GeeksForGeeks, LeetCode, HackerRank</li>
-                <li>Strong hands-on experience in SQL, Data Pipelines, and Data Transformation</li>
+                <li class="cert-item" data-achievement="Google Cloud Expert">
+                    Data Engineering on Google Cloud– Coursera (Google Cloud)
+                    <div class="cert-badge platinum">P</div>
+                </li>
+                <li class="cert-item" data-achievement="Python Master">
+                    Python Programming by Google– Coursera
+                    <div class="cert-badge gold">G</div>
+                </li>
+                <li class="cert-item" data-achievement="Database Expert">
+                    4-star in MySQL & Java on HackerRank
+                    <div class="cert-badge silver">S</div>
+                </li>
+                <li class="cert-item" data-achievement="Algorithm Master">
+                    200+ DSA problems on GeeksForGeeks, LeetCode, HackerRank
+                    <div class="cert-badge gold">G</div>
+                </li>
+                <li class="cert-item" data-achievement="Data Expert">
+                    Strong hands-on experience in SQL, Data Pipelines, and Data Transformation
+                    <div class="cert-badge platinum">P</div>
+                </li>
             </ul>
         </div>
     </section>
@@ -689,10 +1394,21 @@
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 
+                // Update active navigation
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+                
                 window.scrollTo({
                     top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
                 });
+                
+                // Show achievement notification
+                setTimeout(() => {
+                    showNotification("Section Explorer", "You've explored the " + targetId.substring(1) + " section!");
+                }, 1000);
             });
         });
 
@@ -712,16 +1428,164 @@
             });
             
             navLinks.forEach(link => {
-                link.style.backgroundColor = '';
+                link.classList.remove('active');
                 if (link.getAttribute('href') === current) {
-                    link.style.backgroundColor = 'var(--accent-color)';
-                    link.style.color = 'var(--primary-color)';
-                } else {
-                    link.style.backgroundColor = '';
-                    link.style.color = 'var(--text-color)';
+                    link.classList.add('active');
                 }
             });
         });
+
+        // Back to top button functionality
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            showNotification("Quick Traveler", "Returned to top in record time!");
+        });
+
+        // Animation for elements when they come into view
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('section:not(.visible)');
+            const timelineItems = document.querySelectorAll('.timeline-item:not(.visible)');
+            const certItems = document.querySelectorAll('.cert-item:not(.visible)');
+            
+            const windowHeight = window.innerHeight;
+            
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < windowHeight - 50) {
+                    item.classList.add('visible');
+                }
+            });
+            
+            certItems.forEach((item, index) => {
+                const itemTop = item.getBoundingClientRect().top;
+                if (itemTop < windowHeight - 50) {
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, index * 200);
+                }
+            });
+        }
+
+        // Initialize skill progress bars
+        function initProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 500);
+            });
+        }
+
+        // Show achievement modal
+        function showAchievement(title, description, xp) {
+            const modal = document.getElementById('achievementModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            document.querySelector('.achievement-title').textContent = title;
+            document.querySelector('.achievement-desc').textContent = description;
+            document.querySelector('.achievement-xp').textContent = '+' + xp + ' XP';
+            
+            modal.classList.add('show');
+            overlay.classList.add('show');
+            
+            // Update XP bar
+            const xpBar = document.getElementById('xpBar');
+            let currentWidth = parseFloat(getComputedStyle(xpBar).width);
+            let containerWidth = parseFloat(getComputedStyle(xpBar.parentElement).width);
+            let newPercentage = Math.min(((currentWidth / containerWidth) * 100) + (xp / 90), 100);
+            
+            setTimeout(() => {
+                xpBar.style.width = newPercentage + '%';
+            }, 500);
+        }
+
+        // Close achievement modal
+        document.getElementById('closeModal').addEventListener('click', () => {
+            const modal = document.getElementById('achievementModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            modal.classList.remove('show');
+            overlay.classList.remove('show');
+        });
+
+        // Show notification
+        function showNotification(title, text) {
+            const notification = document.getElementById('achievementNotification');
+            notification.querySelector('.notification-title').textContent = title;
+            notification.querySelector('.notification-text').textContent = text;
+            
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Add achievement triggers for clickable elements
+        document.querySelectorAll('[data-achievement]').forEach(element => {
+            element.addEventListener('click', function() {
+                const achievement = this.getAttribute('data-achievement');
+                showAchievement("Achievement Unlocked!", achievement, 50);
+            });
+        });
+
+        // Simulate page loading
+        function simulateLoading() {
+            const progressBar = document.getElementById('progressBar');
+            let width = 0;
+            
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    
+                    // Initialize animations after page load
+                    animateOnScroll();
+                    initProgressBars();
+                    
+                    // Show welcome achievement
+                    setTimeout(() => {
+                        showAchievement("Welcome!", "Thanks for visiting my portfolio", 100);
+                    }, 1500);
+                } else {
+                    width += 5;
+                    progressBar.style.width = width + '%';
+                }
+            }, 50);
+        }
+
+        // Project button click handler
+        document.querySelectorAll('.view-project-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showNotification("Project Enthusiast", "Checked out a project!");
+            });
+        });
+
+        // Run on page load
+        window.addEventListener('load', simulateLoading);
+        
+        // Run on scroll
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
