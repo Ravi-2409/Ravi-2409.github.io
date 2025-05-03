@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi Ranjan Singh | Data Engineer</title>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #004080;
+            --accent-color: #e6f0ff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --background-color: #ffffff;
+            --section-bg: #f9f9f9;
+            --border-color: #dddddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/300') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--accent-color);
+        }
+
+        .nav-container {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--section-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .left {
+            left: 0;
+            text-align: right;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -14px;
+        }
+
+        .right::after {
+            left: -14px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .timeline-content h4 {
+            color: var(--light-text);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .timeline-content ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content ul li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-stack span {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .education-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .education-card p {
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .cert-list {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        .cert-list li {
+            background-color: white;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .cert-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .cert-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            position: absolute;
+            left: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-contact {
+            margin: 20px 0;
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media screen and (max-width: 768px) {
+            header {
+                padding: 60px 0 40px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .left {
+                text-align: left;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="/api/placeholder/400/400" alt="Ravi Ranjan Singh" class="profile-img">
+            <h1>Ravi Ranjan Singh</h1>
+            <p class="title">Data Engineer</p>
+            <div class="contact-info">
+                <p>Bengaluru, India | +91 8437336574 | raviranjans.2409@gmail.com</p>
+            </div>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ravi2409" target="_blank" title="LinkedIn">in</a>
+                <a href="https://github.com" target="_blank" title="GitHub">GH</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="nav-container">
+        <nav class="container">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#certifications">Certifications</a>
+        </nav>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hi there! I'm Ravi, a dedicated Data Engineer with expertise in designing and implementing scalable data pipelines. I specialize in ETL processes, SQL optimization, and cloud-based data solutions.</p>
+                    
+                    <p>Currently working at Asper.ai in the CPG domain, I focus on transforming complex data into actionable insights through efficient data engineering practices. My experience spans across various data technologies including Python, Apache Airflow, Spark, and cloud platforms like AWS and GCP.</p>
+                    
+                    <p>With a strong foundation in computer science and a passion for solving data challenges, I'm constantly exploring new technologies to enhance data processing capabilities and drive business value through reliable data infrastructure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Data Engineer</h3>
+                        <h4>Asper.ai, Bengaluru (CPG Domain) | Jul 2023 – Present</h4>
+                        <ul>
+                            <li>Designed and implemented scalable data pipelines using Python and Apache Airflow to process large-scale CPG retail data from multiple sources.</li>
+                            <li>Optimized ETL jobs and SQL queries, reducing overall data pipeline runtime by 40%.</li>
+                            <li>Built real-time data ingestion flows using Kafka and Spark Streaming for critical business metrics.</li>
+                            <li>Developed data validation scripts and anomaly detection logic to improve data accuracy and integrity.</li>
+                            <li>Worked with cross-functional teams to integrate new data sources into the data lake (AWS S3 + Glue), enabling downstream analytics and reporting.</li>
+                            <li>Created dashboards in Power BI and Looker to visualize processed data for key stakeholders.</li>
+                            <li>Contributed to infrastructure automation using Terraform and Docker for reproducible data environments.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Software Engineer Trainee</h3>
+                        <h4>Xperi Inc., Bengaluru (OTT and Multimedia domain) | Jan 2023 – Jul 2023</h4>
+                        <ul>
+                            <li>Developed mobile UI test automation using Appium & Pytest, improving UI test coverage by 20%.</li>
+                            <li>Automated UI test cases for Android & iOS applications, ensuring consistent UX across devices.</li>
+                            <li>Executed UI regression testing for multimedia applications, reducing post-release UI bugs by 15%.</li>
+                            <li>Optimized UI test execution in CI/CD, reducing deployment times by 10%.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Java</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Engineering Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">Spark</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">AWS Glue</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">BigQuery</span>
+                        <span class="skill-tag">Snowflake</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Cloud Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">Azure</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>DevOps Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Bitbucket</span>
+                        <span class="skill-tag">Terraform</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Others</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <img src="/api/placeholder/800/400" alt="YouTube Clone Project" class="project-img">
+                <div class="project-content">
+                    <h3>YouTube Clone Web App</h3>
+                    <p>Developed a responsive YouTube clone using ReactJS with real-time video search and playback. Integrated YouTube v3 API for fetching trending videos, channels, and search results. Designed an intuitive UI with reusable components and routing for a seamless user experience.</p>
+                    <div class="tech-stack">
+                        <span>ReactJS</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>RapidAPI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card">
+                <h3>Lovely Professional University, Punjab</h3>
+                <p><strong>B.Tech in Computer Science</strong> | 2019–2023</p>
+                <p>GPA: 8.91/10.0 (Dean's List)</p>
+                <p>Relevant Coursework: Data Engineering, Python, SQL, Cloud Computing, Big Data, ETL, CI/CD</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <ul class="cert-list">
+                <li>Data Engineering on Google Cloud– Coursera (Google Cloud)</li>
+                <li>Python Programming by Google– Coursera</li>
+                <li>4-star in MySQL & Java on HackerRank</li>
+                <li>200+ DSA problems on GeeksForGeeks, LeetCode, HackerRank</li>
+                <li>Strong hands-on experience in SQL, Data Pipelines, and Data Transformation</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>Get in Touch</h3>
+            <div class="footer-contact">
+                <a href="mailto:raviranjans.2409@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/ravi2409" target="_blank">LinkedIn</a>
+                <a href="tel:+918437336574">Call</a>
+            </div>
+            <p class="copyright">© 2025 Ravi Ranjan Singh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.backgroundColor = '';
+                if (link.getAttribute('href') === current) {
+                    link.style.backgroundColor = 'var(--accent-color)';
+                    link.style.color = 'var(--primary-color)';
+                } else {
+                    link.style.backgroundColor = '';
+                    link.style.color = 'var(--text-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
